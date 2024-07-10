@@ -5,6 +5,7 @@ import FeedbackList from "./components/FeedbackList"
 import FeedbackData from "./data/FeedbackData"
 import FeedbackStats from "./components/FeedbackStats"
 import FeedbackForm from "./components/FeedbackForm"
+import { FeedbackProvider } from "./context/FeedbackContext"
 
 
 function App() {
@@ -23,16 +24,15 @@ function App() {
 
     
     return (
-        <>
+        <FeedbackProvider>
         <Header text="Feedback UI" />
         <div className="container">
             <FeedbackForm handleAdd={addFeedback}/>
             <FeedbackStats feedback ={feedback} />
             <FeedbackList feedback = {feedback} handleDelete={deleteFeedback}/> 
             
-
        </div>
-        </>
+        </FeedbackProvider>
        
     )
 }
